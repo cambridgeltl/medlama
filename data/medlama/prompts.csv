@@ -1,0 +1,21 @@
+pid,default_prompt,human_prompt
+associated_morphology_of,[X] associated morphology of  [Y] .,[X] is associated morphology of [Y] .
+disease_has_abnormal_cell,[X] disease has abnormal cell [Y] .,[X] has the abnormal cell [Y] .
+disease_has_associated_anatomic_site,[X] disease has associated anatomic site [Y] .,The disease [X] can stem from the associated anatomic_site [Y] .
+disease_has_normal_cell_origin,[X] disease has normal cell origin [Y] .,The disease [X] stems from the normal cell [Y] .
+disease_has_normal_tissue_origin,[X] disease has normal tissue origin [Y] .,The disease [X] stems from the normal tissue [Y] .
+disease_mapped_to_gene,[X] disease mapped to gene [Y] .,The disease [X] is mapped to gene [Y] .
+disease_may_have_associated_disease,[X] disease may have associated disease [Y] .,The disease [X] might have the associated disease [Y] .
+disease_may_have_finding,[X] disease may have finding [Y] .,[X] may have [Y] .
+disease_may_have_molecular_abnormality,[X] disease may have molecular abnormality [Y] .,The disease [X] may have molecular abnormality [Y] .
+gene_associated_with_disease,[X] gene associated with disease [Y] .,The gene [X] is associatied with disease [Y] .
+gene_encodes_gene_product,[X] gene encodes gene product [Y] .,The gene [X] encodes gene product [Y] .
+gene_product_encoded_by_gene,[X] gene product encoded by gene [Y] .,The gene product [X] is encoded by gene [Y] .
+gene_product_has_associated_anatomy,[X] gene product has associated anatomy [Y] .,The gene product [X] has the associated anatomy [Y] .
+gene_product_has_biochemical_function,[X] gene product has biochemical function [Y] .,[X] has biochemical function [Y] .
+gene_product_has_chemical_classification,[X] gene product has chemical classification [Y] .,The gene product [X] is a type of [Y] .
+gene_product_plays_role_in_biological_process,[X] gene product plays role in biological process [Y] .,The gene product [X] plays role in biological process [Y] .
+has_physiologic_effect,[X] has physiologic effect [Y] .,[X] has physiologic effect of [Y] .
+may_prevent,[X] may prevent [Y] .,[X] may be able to prevent [Y] .
+may_treat,[X] may treat [Y] .,[X] might treat [Y] .
+occurs_after,[X] occurs after [Y] .,[X] occurs after [Y] .
