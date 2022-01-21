@@ -69,3 +69,14 @@ CUDA_VISIBLE_DEVICES='0' python3 run_retrieval_prediction.py \
 	--log
 
 ```
+
+
+### If you find our paper and resources useful, please kindly cite our paper:
+```latex
+@article{meng2021rewire,
+  title={Rewire-then-Probe: A Contrastive Recipe for Probing Biomedical Knowledge of Pre-trained Language Models},
+  author={Meng, Zaiqiao and Liu, Fangyu and Shareghi, Ehsan and Su, Yixuan and Collins, Charlotte and Collier, Nigel},
+  journal={arXiv preprint arXiv:2110.08173},
+  year={2021}
+}
+```
