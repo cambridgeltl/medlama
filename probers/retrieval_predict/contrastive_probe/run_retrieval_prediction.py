@@ -215,33 +215,63 @@ for test_file in TEST_FILES:
         D, nn_indices = index.search(
             query_cls_rep.cpu().detach().numpy().astype("float32"), 10
         )  # actual search
-
+        
         for j in range(len(nn_indices)):
-            if all_names[nn_indices[j][0]] in answers[j]:
+            global_count +=1
+            hitat5 = 0
+            hitat10 = 0
+            top10preds = []
+            top10preds_ind = nn_indices[j][:10]
+            for jj in range(10):
+                top10preds.append(all_names[top10preds_ind[jj]])
+            if top10preds[0] in answers[j]:
                 correct += 1
                 global_correct += 1
                 correct_indices.append(i + j)
                 global_correct_indices.append(global_count)
                 hit_or_not.append(1)
+                hit_5_or_not .append(1)
+                hit_10_or_not.append(1)
             else:
                 hit_or_not.append(0)
-            # preds.append(all_names[nn_indices[j][0]])
-            global_count += 1
-            hitat10 = 0
-            hitat5 = 0
-            top10preds = []
-            hitat5_count = 0
-            for jj in range(len(nn_indices[j])):
-                top10preds.append(all_names[nn_indices[j][jj]])
-                if all_names[nn_indices[j][jj]] in answers[j]:
-                    hitat10 += 1
-                    if hitat5_count < 5:
-                        hitat5 += 1
-                hitat5_count += 1
-
+                for jj, pred_jj in enumerate(top10preds[1:], 1):
+                    if pred_jj in answers[j]:
+                        if jj < 5:
+                            hitat5 = 1
+                            hitat10 = 1
+                        else:
+                            hitat10 = 1
+                        break
+                hit_5_or_not.append(hitat5)
+                hit_10_or_not.append(hitat10)
             preds.append(" || ".join(top10preds))
-            hit_10_or_not.append(hitat10)
-            hit_5_or_not.append(hitat5)
+
+#         for j in range(len(nn_indices)):
+#             if all_names[nn_indices[j][0]] in answers[j]:
+#                 correct += 1
+#                 global_correct += 1
+#                 correct_indices.append(i + j)
+#                 global_correct_indices.append(global_count)
+#                 hit_or_not.append(1)
+#             else:
+#                 hit_or_not.append(0)
+#             # preds.append(all_names[nn_indices[j][0]])
+#             global_count += 1
+#             hitat10 = 0
+#             hitat5 = 0
+#             top10preds = []
+#             hitat5_count = 0
+#             for jj in range(len(nn_indices[j])):
+#                 top10preds.append(all_names[nn_indices[j][jj]])
+#                 if all_names[nn_indices[j][jj]] in answers[j]:
+#                     hitat10 += 1
+#                     if hitat5_count < 5:
+#                         hitat5 += 1
+#                 hitat5_count += 1
+
+#             preds.append(" || ".join(top10preds))
+#             hit_10_or_not.append(hitat10)
+#             hit_5_or_not.append(hitat5)
     df_test["pred_hit_at_1"] = hit_or_not
     df_test["pred_hit_at_5"] = hit_5_or_not
     df_test["pred_hit_at_10"] = hit_10_or_not
@@ -269,20 +299,20 @@ for test_file in TEST_FILES:
     overall_h1 += sum(df_test["pred_hit_at_1"])
     overall_h5 += sum(df_test["pred_hit_at_5"])
     overall_h10 += sum(df_test["pred_hit_at_10"])
-    result["recall@1"] = sum(df_test["pred_hit_at_1"]) / len(df_test)
-    result["recall@5"] = sum(df_test["pred_hit_at_5"]) / len(df_test)
-    result["recall@10"] = sum(df_test["pred_hit_at_10"]) / len(df_test)
+    result["acc@1"] = sum(df_test["pred_hit_at_1"]) / len(df_test)
+    result["acc@5"] = sum(df_test["pred_hit_at_5"]) / len(df_test)
+    result["acc@10"] = sum(df_test["pred_hit_at_10"]) / len(df_test)
     wandb.config.update(result)
     wandb.finish()
 wandb.init(project="Bio_LAMA_Mirror_summary")
 
 summary = {}
-summary["macro recall@1"] = overall_r1 / len(TEST_FILES)
-summary["macro recall@5"] = overall_r5 / len(TEST_FILES)
-summary["macro recall@10"] = overall_r10 / len(TEST_FILES)
-summary["micro recall@1"] = overall_h1 / global_count
-summary["micro recall@5"] = overall_h5 / global_count
-summary["micro recall@10"] = overall_h10 / global_count
+summary["macro acc@1"] = overall_r1 / len(TEST_FILES)
+summary["macro acc@5"] = overall_r5 / len(TEST_FILES)
+summary["macro acc@10"] = overall_r10 / len(TEST_FILES)
+summary["micro acc@1"] = overall_h1 / global_count
+summary["micro acc@5"] = overall_h5 / global_count
+summary["micro acc@10"] = overall_h10 / global_count
 wandb.config.update(args)
 wandb.config.update(summary)
 print(summary)
