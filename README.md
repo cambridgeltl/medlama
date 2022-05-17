@@ -28,6 +28,7 @@ Knowledge probing is crucial for understanding the knowledge transfer mechanism 
 | LAMA | 41 | 41k | 1 | 7.11 | 100% |
 | Bio-LAMA | 36 | 49k | 1 | 18.40 | 2.2% |
 | **MedLAMA** | 19 | 19k | 2.3 | 20.88 | 2.6% |
+
 You can find the full MedLAMA dataset in [here](https://github.com/cambridgeltl/medlama/tree/master/data/medlama).
 ### Contrastive-Probe
 You can find the full Contrastive-Probe codes in [here](https://github.com/cambridgeltl/medlama/tree/master/src/probers/retrieval_predict/contrastive_probe/).
