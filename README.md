@@ -100,3 +100,5 @@ CUDA_VISIBLE_DEVICES=$1 python3 run_retrieval_prediction.py \
   year={2021}
 }
 ```
+### Contact
+If you have any questions, feel free to contact me via (zm324@cam.ac.uk).
