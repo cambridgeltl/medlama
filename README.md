@@ -1,5 +1,5 @@
-## Rewire-then-Probe: A Contrastive Recipe for Probing Biomedical Knowledge of Pre-trained Language Models
-**Authors:** Zaiqiao Meng, Fangyu Liu, Ehsan Shareghi, Yixuan Su, Charlotte Collins, Nigel Collier
+# Rewire-then-Probe: A Contrastive Recipe for Probing Biomedical Knowledge of Pre-trained Language Models
+>**Authors:** Zaiqiao Meng, Fangyu Liu, Ehsan Shareghi, Yixuan Su, Charlotte Collins, Nigel Collier
 
 Code of our paper: [Rewire-then-Probe: A Contrastive Recipe for Probing Biomedical Knowledge of Pre-trained Language Models](https://arxiv.org/abs/2110.08173)
 
@@ -97,8 +97,7 @@ CUDA_VISIBLE_DEVICES=$1 python3 run_retrieval_prediction.py \
 @inproceedings{meng2021rewire,
   title={Rewire-then-Probe: A Contrastive Recipe for Probing Biomedical Knowledge of Pre-trained Language Models},
   author={Meng, Zaiqiao and Liu, Fangyu and Shareghi, Ehsan and Su, Yixuan and Collins, Charlotte and Collier, Nigel},
-  booktitle={60th Annual Meeting of the Association for Computational Linguistics
-},
+  booktitle={60th Annual Meeting of the Association for Computational Linguistics},
   year={2022}
 }
 ```
